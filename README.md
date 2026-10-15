@@ -41,3 +41,38 @@ python3 -m http.server 8000
 ## Disclaimer
 
 This site is educational and does not provide medical, legal or financial advice, diagnosis, or treatment. If you or someone you know is experiencing memory changes, please speak with a licensed healthcare professional.
+
+## Accounts and login
+
+`login.html` provides passwordless sign-in (a one-time link by email), a short non-health profile, data export and account deletion. It runs on [Supabase](https://supabase.com), which is free at this site's scale. Until it is configured the page shows a "not switched on yet" notice and the rest of the site is unaffected.
+
+1. Create a Supabase project (choose an EU region if European readers matter). In **Authentication → URL configuration**, set the Site URL to `https://kerschberg-lgtm.github.io/AI-Advisor-for-Alzheimers/` and add `https://kerschberg-lgtm.github.io/AI-Advisor-for-Alzheimers/login.html` to the redirect URLs. In **Authentication → Providers → Email**, leave email enabled; passwords are not used.
+2. In the SQL editor, run:
+
+```sql
+create table public.profiles (
+  id uuid primary key references auth.users (id) on delete cascade,
+  full_name text,
+  country text,
+  role text,
+  topics text[] default '{}',
+  newsletter boolean default false,
+  updated_at timestamptz default now()
+);
+alter table public.profiles enable row level security;
+create policy "own profile: read"   on public.profiles for select using (auth.uid() = id);
+create policy "own profile: insert" on public.profiles for insert with check (auth.uid() = id);
+create policy "own profile: update" on public.profiles for update using (auth.uid() = id);
+
+create or replace function public.delete_own_account()
+returns void language sql security definer set search_path = public as $$
+  delete from auth.users where id = auth.uid();
+$$;
+revoke all on function public.delete_own_account() from public;
+grant execute on function public.delete_own_account() to authenticated;
+```
+
+3. Copy the project URL and the **anon public** key from **Settings → API** into `config.js`. The anon key is meant to be public; the policies above are what protect the data.
+4. Commit and push. Sign in once yourself to confirm the email arrives and the profile saves.
+
+Privacy: the policy at `privacy.html` describes exactly this setup. If you add a newsletter provider, name it there before sending the first issue.

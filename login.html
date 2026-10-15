@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login · AI Advisor for Alzheimer's</title>
+  <meta name="description" content="Sign in to AI Advisor for Alzheimer's with a one-time email link, tell us a little about yourself, and manage or delete your account.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261015e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%233b5bdb'/%3E%3Cpath d='M20 40c0-10 6-16 12-16s12 6 12 16' stroke='white' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='4' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="AI Advisor for Alzheimer's home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">AI Advisor <span class="brand-light">for Alzheimer's</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="brain-health.html">Brain</a></li>
+          <li><a href="heart-health.html">Heart</a></li>
+          <li><a href="metabolism.html">Metabolism</a></li>
+          <li><a href="genetic-heart-health.html">Genetics</a></li>
+          <li><a href="23andme.html">23andMe</a></li>
+          <li><a href="clinical-trials.html">Trials</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="other-sites.html">Other sites</a></li>
+          <li><a href="advisor.html">Advisor</a></li>
+          <li><a href="login.html" aria-current="page">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-head">
+      <div class="container narrow">
+        <p class="eyebrow">Account</p>
+        <h1>Login</h1>
+        <p class="lead">Sign in with a one-time link sent to your email. There are no passwords to remember or to leak. Once signed in you can tell us about yourself, choose newsletter topics, download your data, or delete your account.</p>
+        <p class="updated">Updated <time datetime="2026-10-15T18:10-04:00">15 October 2026, 18:10 EDT</time></p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+
+        <div id="view-unconfigured" class="auth-card" hidden>
+          <h2>Sign-in is not switched on yet</h2>
+          <p>This page is ready, but the site owner has not yet connected it to a login service. Everything else on the site works without an account.</p>
+          <p class="note info">Owner: create a Supabase project, run the SQL in the README, and put the project URL and public key in <code>config.js</code>.</p>
+        </div>
+
+        <div id="view-signin" class="auth-card" hidden>
+          <h2>Sign in or create an account</h2>
+          <p>Enter your email and we will send you a link that signs you in. If you do not have an account, the link creates one.</p>
+          <form id="signin-form" novalidate>
+            <label for="email">Email address</label>
+            <input id="email" type="email" required autocomplete="email" placeholder="you@example.com">
+            <label class="check"><input id="consent" type="checkbox" required> I have read the <a href="privacy.html">privacy policy</a> and I am 16 or older.</label>
+            <p id="signin-msg" class="form-msg" hidden></p>
+            <button class="btn btn-primary" type="submit">Email me a sign-in link</button>
+          </form>
+          <p class="small-print">We store your email address and, if you choose to tell us, your name, country, role and interests. We never ask for genetic or medical information.</p>
+        </div>
+
+        <div id="view-sent" class="auth-card" hidden>
+          <h2>Check your email</h2>
+          <p>We sent a sign-in link to <strong id="sent-email"></strong>. Open it on this device to finish signing in. The link expires after an hour.</p>
+          <button class="btn btn-link" id="sent-back" type="button">← Use a different email</button>
+        </div>
+
+        <div id="view-account" class="auth-card" hidden>
+          <h2>Your account</h2>
+          <p>Signed in as <strong id="acct-email"></strong>.</p>
+          <form id="profile-form">
+            <h3>Tell us about yourself</h3>
+            <label for="full_name">Name (optional)</label>
+            <input id="full_name" type="text" autocomplete="name">
+            <label for="country">Country (optional)</label>
+            <input id="country" type="text" autocomplete="country-name">
+            <label for="role">Which best describes you?</label>
+            <select id="role">
+              <option value="">Prefer not to say</option>
+              <option value="worried">I am worried about my own memory</option>
+              <option value="family">I care for someone with Alzheimer's</option>
+              <option value="clinician">I am a clinician</option>
+              <option value="researcher">I am a researcher or student</option>
+              <option value="other">Other</option>
+            </select>
+            <fieldset>
+              <legend>Topics you want to hear about</legend>
+              <label class="check"><input type="checkbox" name="topics" value="brain"> Brain health</label>
+              <label class="check"><input type="checkbox" name="topics" value="heart"> Heart health</label>
+              <label class="check"><input type="checkbox" name="topics" value="metabolism"> Metabolism and nutrition</label>
+              <label class="check"><input type="checkbox" name="topics" value="genetics"> Genetics</label>
+              <label class="check"><input type="checkbox" name="topics" value="trials"> Clinical trials</label>
+              <label class="check"><input type="checkbox" name="topics" value="research"> Latest research</label>
+            </fieldset>
+            <label class="check"><input id="newsletter" type="checkbox"> Send me the monthly newsletter. You can unsubscribe at any time.</label>
+            <p id="profile-msg" class="form-msg" hidden></p>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Save</button>
+              <button class="btn btn-secondary" type="button" id="export-btn">Download my data</button>
+              <button class="btn btn-secondary" type="button" id="signout-btn">Sign out</button>
+            </div>
+          </form>
+          <div class="danger-zone">
+            <h3>Delete account</h3>
+            <p>Removes your email, profile and newsletter preference permanently.</p>
+            <button class="btn btn-danger" type="button" id="delete-btn">Delete my account</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span data-year></span> AI Advisor for Alzheimer's. Educational content only; not medical, legal or financial advice. This site does not collect, store or analyse genetic data.</p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="login.html">Login</a> · <a href="https://github.com/kerschberg-lgtm/AI-Advisor-for-Alzheimers">Source on GitHub</a></p>
+      <p>If you are in crisis or someone is in immediate danger, contact local emergency services. In the United States the Alzheimer's Association helpline is 800-272-3900, 24 hours a day.</p>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
