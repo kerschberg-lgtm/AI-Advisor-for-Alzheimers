@@ -3,12 +3,12 @@
    Shared by every page of the site. */
 
 :root {
-  --bg: #fbfaf7;
-  --bg-alt: #f1f0ea;
+  --bg: #f4fafa;
+  --bg-alt: #e8f3f3;
   --surface: #ffffff;
   --text: #1f2430;
   --text-muted: #5b6270;
-  --border: #e2e0d8;
+  --border: #d9e6e6;
   --accent: #3b5bdb;
   --accent-strong: #2f49b3;
   --accent-soft: #e8edfb;
