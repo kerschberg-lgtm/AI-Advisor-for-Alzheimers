@@ -17,7 +17,7 @@ The site is static HTML with no build step, no backend, and no data collection. 
 | `genetic-heart-health.html` | Genetics of heart and brain: APOE, familial hypercholesterolaemia, Lp(a), MTHFR |
 | `23andme.html` | 23andMe's current status and the APOE ε4 report |
 | `clinical-trials.html` | Recruiting and fully enrolled trials in the US and EU, with registry links |
-| `research.html` | Latest papers from PubMed, arXiv, *Science* and *JAMA* |
+| `research.html` | Latest papers from PubMed, arXiv, *Science* and *Journal of the American Medical Association* |
 | `other-sites.html` | Other websites that cover these topics |
 | `advisor.html` | The guided advisor and common questions |
 
