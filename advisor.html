@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advisor · AI Advisor for Alzheimer's</title>
+  <meta name="description" content="A two-question guided advisor for people worried about their memory, caregivers, clinicians and researchers, plus straight answers to common questions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%233b5bdb'/%3E%3Cpath d='M20 40c0-10 6-16 12-16s12 6 12 16' stroke='white' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='4' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="AI Advisor for Alzheimer's home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">AI Advisor <span class="brand-light">for Alzheimer's</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="brain-health.html">Brain</a></li>
+          <li><a href="heart-health.html">Heart</a></li>
+          <li><a href="metabolism.html">Metabolism</a></li>
+          <li><a href="genetic-heart-health.html">Genetics</a></li>
+          <li><a href="23andme.html">23andMe</a></li>
+          <li><a href="clinical-trials.html">Trials</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="other-sites.html">Other sites</a></li>
+          <li><a href="advisor.html" aria-current="page">Advisor</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-head">
+      <div class="container narrow">
+        <p class="eyebrow">Guided advisor</p>
+        <h1>Tell us who you are, and we will point you to what matters</h1>
+        <p class="lead">Answer two short questions for a focused summary of what AI and genetics can and cannot do for your situation, with sensible next steps. Nothing you choose is saved or sent anywhere.</p>
+        <p class="updated">Updated <time datetime="2026-10-15T12:30-04:00">15 October 2026, 12:30 EDT</time></p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="advisor" data-advisor>
+          <div class="advisor-step" data-step="1">
+            <h3 class="advisor-question">Which best describes you?</h3>
+            <div class="choice-grid" role="group" aria-label="Your role">
+              <button class="choice" data-role="worried"><span class="choice-title">I am worried about my own memory</span><span class="choice-sub">Noticing changes and wondering what to do</span></button>
+              <button class="choice" data-role="family"><span class="choice-title">I care for someone with Alzheimer's</span><span class="choice-sub">Family member, friend, or paid caregiver</span></button>
+              <button class="choice" data-role="clinician"><span class="choice-title">I am a clinician</span><span class="choice-sub">Physician, nurse, neuropsychologist, or allied health</span></button>
+              <button class="choice" data-role="researcher"><span class="choice-title">I am a researcher or student</span><span class="choice-sub">Looking for datasets, methods, and open problems</span></button>
+            </div>
+          </div>
+          <div class="advisor-step" data-step="2" hidden>
+            <h3 class="advisor-question">What are you most interested in right now?</h3>
+            <div class="choice-grid" role="group" aria-label="Your interest"></div>
+            <button class="btn btn-link" data-back>← Back</button>
+          </div>
+          <div class="advisor-step advisor-result" data-step="3" hidden aria-live="polite">
+            <div class="result-card">
+              <p class="eyebrow" data-result-eyebrow></p>
+              <h3 data-result-title></h3>
+              <div data-result-body></div>
+              <div class="result-actions">
+                <button class="btn btn-secondary" data-restart>Start over</button>
+                <a class="btn btn-link" href="other-sites.html">See other websites</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">Common questions</p>
+          <h2>Straight answers about AI, genes and Alzheimer's</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>Can an AI tool or a DNA test tell me if I have Alzheimer's?</summary><div class="faq-body"><p>No. A genetic result estimates lifetime risk, and some AI tools flag patterns worth a closer look, but a diagnosis requires a clinician who examines you and orders tests such as cognitive assessments, blood biomarkers, brain imaging or spinal fluid analysis. Treat any app or website that claims to diagnose Alzheimer's on its own with caution.</p></div></details>
+          <details class="faq-item"><summary>What does my 23andMe Alzheimer's result mean?</summary><div class="faq-body"><p>It tells you how many copies of the APOE ε4 variant you carry, and nothing else. One copy roughly doubles or triples average risk; two copies raise it much more. It is not a diagnosis, roughly half of people with Alzheimer's carry no ε4, and the risk estimates are least accurate outside European ancestry. The <a href="23andme.html">23andMe page</a> explains the detail.</p></div></details>
+          <details class="faq-item"><summary>Are blood tests for Alzheimer's real?</summary><div class="faq-body"><p>Yes. Tests that measure p-tau217 are now used by specialists and predict who will progress to cognitive impairment. They are ordered by clinicians, not sold to consumers, and they measure the disease process directly, which is why they now say more than any genetic result.</p></div></details>
+          <details class="faq-item"><summary>Should I take vitamin B12 or an MTHFR supplement?</summary><div class="faq-body"><p>If a blood test shows low B12 or high homocysteine, treating it is worthwhile and may slow brain atrophy. A genetic MTHFR result on its own does not call for treatment. See the <a href="metabolism.html">metabolism page</a>.</p></div></details>
+          <details class="faq-item"><summary>Is it safe to ask a chatbot for caregiving advice?</summary><div class="faq-body"><p>For general questions, such as how to respond to repeated questions or make a home safer, chatbots can be a helpful starting point. They can also be confidently wrong. Use them to prepare questions for a professional, and never share another person's private health information with a tool whose privacy policy you have not read.</p></div></details>
+          <details class="faq-item"><summary>What should I look for before trusting an AI health tool?</summary><div class="faq-body"><ul><li>Has it been tested in peer-reviewed studies with people like you?</li><li>Is it cleared or approved by a regulator such as the FDA, or is it "wellness" only?</li><li>Does it explain its limits and tell you when to see a professional?</li><li>What does it do with your data, and can you delete it?</li><li>Does your clinician recognise it or recommend it?</li></ul></div></details>
+          <details class="faq-item"><summary>Does AI replace doctors, nurses, or caregivers?</summary><div class="faq-body"><p>No. The most useful AI in Alzheimer's care works alongside people: it reads scans so radiologists can focus on hard cases, drafts care plans that nurses refine, and handles reminders so caregivers have more energy for connection.</p></div></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span data-year></span> AI Advisor for Alzheimer's. Educational content only; not medical, legal or financial advice. This site does not collect, store or analyse genetic data.</p>
+      <p>If you are in crisis or someone is in immediate danger, contact local emergency services. In the United States the Alzheimer's Association helpline is 800-272-3900, 24 hours a day.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
